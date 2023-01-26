@@ -13,11 +13,16 @@ class Payment extends Model
     protected $fillable = [
         'parking_id',
         'paid_amount',
+        'car_id'
     ];
 
 
     public function parking()
     {
-        return $this->belongsTo(Parking::class);
+        return $this->hasMany(Parking::class, 'parking_id');
+    }
+    public function car()
+    {
+        return $this->belongsTo(Car::class, 'car_id');
     }
 }

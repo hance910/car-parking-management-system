@@ -158,7 +158,8 @@
                                     <form action="{{route('car-parking-charges-submission')}}" method="POST">
                                         @csrf
                                         <input type="hidden" value="{{$parking->parking_id}}" name="parking_id">
-                                        <input type="hidden" value="{{$money}}" name="money">
+                                        <input type="hidden" value="{{ $parking->car->car_id }}" name="car_id">
+                                        <input type="hidden" value="{{ $money }}" name="money">
                                         <button class="btn btn-success rounded-4">Clear</button>
                                     </form>
                                     </td>
@@ -166,6 +167,7 @@
                                   </tbody>
                             @endforeach
                             </table>
+                            {{ $parkings->links('pagination::bootstrap-5')}}
                         </div>
                     </div>
                 </div>

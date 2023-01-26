@@ -34,7 +34,5 @@ class CarDetailController extends Controller
             ]);
             return redirect('/parking-entry')->with('status', 'Register success!');
         }
-
-
     }
 }

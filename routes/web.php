@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CarDetailController;
+use App\Http\Controllers\CarParkingChargesController;
 use App\Http\Controllers\ParkingEntryController;
 use App\Http\Controllers\CarParkingDetailController;
 
@@ -30,6 +31,9 @@ Route::post('/users/register', [RegisterController::class, 'store'])->name('regi
 
 // LOGOUT
 Route::post('/users/logout', [LogoutController::class, 'logout'])->name('logout');
+
+// Charges
+Route::get('/cars/parking/records',[CarParkingChargesController::class, 'index'])->name('index.charges');
 
 
 

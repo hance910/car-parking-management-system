@@ -33,8 +33,8 @@ class CarParkingDetailController extends Controller
 
         foreach ($parkings as $parking) {
             // dd($parking->parking_number);
-            if($parking->parking_number == $request->park_number && $parking->wing->wing_id == $request->wing && $parking->car->car_id == $car->car_id){
-                return back()->with('error', 'This vehicle aleady in this parking');
+            if($parking->parking_number == $request->park_number && $parking->wing->wing_id == $request->wing ){
+                return back()->with('error', 'Parking already has a car parked!');
             }
         }
         // Assign vehicle to a parking
@@ -46,15 +46,19 @@ class CarParkingDetailController extends Controller
             // Back to the page
             return redirect()->back()->with('status', 'Vehicle assigned to a parking number' ." ". $request->park_number  ." ". $wing->wing_location );
     }
-
     // Store charges
     public function store(Request $request)
     {
+        // dd($request->car_id);
         $money = 200*$request->money;
         Payment::create([
             'parking_id' => $request->parking_id,
             'paid_amount' => $money,
+            'car_id' => $request->car_id
         ]);
+        // Remove a car from parking
+        Parking::where('parking_id', $request->parking_id)->delete();
+        // Redirect back
         return redirect()->back()->with('status', 'Vehicle Cleared!');
     }
 }
