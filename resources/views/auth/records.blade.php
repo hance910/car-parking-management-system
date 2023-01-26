@@ -34,6 +34,5 @@
                 {{$paid_vehicles->links('pagination::bootstrap-5')}}
             </div>
         </div>
-
     </div>
 @endsection
