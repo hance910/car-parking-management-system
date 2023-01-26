@@ -30,7 +30,7 @@ class CarParkingDetailController extends Controller
         // get car id
         $car = Car::where('plate_number', $request->plate_number)->where('plate_name', $request->plate_name)->first();
         $parkings = Parking::with('car','wing')->get();
-
+        // dd($car->car_id);
         foreach ($parkings as $parking) {
             // dd($parking->parking_number);
             if($parking->parking_number == $request->park_number && $parking->wing->wing_id == $request->wing ){
@@ -54,7 +54,7 @@ class CarParkingDetailController extends Controller
         Payment::create([
             'parking_id' => $request->parking_id,
             'paid_amount' => $money,
-            'car_id' => $request->car_id
+            'car_id' => $request->carid
         ]);
         // Remove a car from parking
         Parking::where('parking_id', $request->parking_id)->delete();

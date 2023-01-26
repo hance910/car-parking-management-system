@@ -14,15 +14,13 @@ class Parking extends Model
     use HasFactory;
 
     use SoftDeletes;
-    
-    protected $primaryKey = 'parkng_id';
 
     protected $fillable = [
         'parking_number',
         'car_id',
         'wing_id',
     ];
-
+    
     // has many cars
     public function car()
     {

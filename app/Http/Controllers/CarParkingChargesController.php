@@ -17,7 +17,7 @@ class CarParkingChargesController extends Controller
     public function index(Request $request)
     {
         $parkings = Parking::with('Parking', 'Car');
-        $paid_vehicles = Payment::with('Car')->paginate(5);
+        $paid_vehicles = Payment::with('Car')->paginate(4);
         return view('auth.records', [
             'paid_vehicles' => $paid_vehicles,
             'parkings' => $parkings

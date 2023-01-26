@@ -17,7 +17,7 @@ class ParkingEntryController extends Controller
     public function index(Request $request)
     {    
         $cars = Car::all();
-        $parkings = Parking::with('car','wing')->paginate(5);
+        $parkings = Parking::with('car','wing')->paginate(4);
         $wings = Wing::all();
         return view('parking-entry', [
             'cars' => $cars,

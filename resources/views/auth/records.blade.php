@@ -6,7 +6,7 @@
             <div class="card-body">
               <div class="row">
                 <div class="col">
-                  <h3 class="fw-bold">Records:</h3>
+                  <h3 class="fw-bold">Cleared Vehicles:</h3>
                 </div>
               </div>
                 <table class="table table-secondary">
