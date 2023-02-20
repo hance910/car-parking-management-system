@@ -87,7 +87,7 @@
                                 <select name="plate_name" class="form-select">
                                     <option selected disabled>Plate name</option>
                                         @foreach ($cars as $car)
-                                            <option value="{{ $car->plate_name }}">{{ $car->plate_name }}</option>
+                                            <option value="{{ $car_plate_number }}">{{ $car->plate_name }}</option>
                                         @endforeach
                                 </select>
                                 @error ('plate_name')
